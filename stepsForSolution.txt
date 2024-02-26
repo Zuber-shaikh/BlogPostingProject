@@ -1,0 +1,31 @@
+As per the given problem statement, it seems we'll need to handle post creation,
+deletion, editing on user level. So, we would need to have a login page for the
+user and based on the user, the home page will the user's posts. And he can
+perform create, update, delete on the posts.
+
+1st page("/"):
+    It will be a login page, when user enters his userId, password and clicks
+    on submit button, he will be redirected to the home-page for that user.
+
+2nd page("userName/home"):
+    Based on the user, the home page will display his posts.
+    Each posts will have an update and delete button to update/delete the post.
+        update --> "userName/postId/update"
+        delete --> "userName/postId/delete"
+    Also this page will have a createPost button to create a new post.
+        create --> "userName/create"
+
+3rd page("userName/postId/update"):
+    This page will display the post which user wants to edit and here the user can
+    edit his post. It will also have an update button, to save the post after editing
+
+4th page("userName/postId/delete"):
+    This page will display the post which user wants to delete. It will also have a
+    delete button, when user clicks it, the post will be deleted.
+
+5th page("userName/create"):
+    This page will have textbox in which the user can enter his post and once done,
+    he can click on the create button and the post will be create.
+
+In 3rd, 4th, 5th page after the user performs the respective action, he will be
+redirected to the home page.
