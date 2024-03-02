@@ -39,32 +39,39 @@ app.get("/:user/edit/:id", (req, res) => {
   res.render("update.ejs", {
     post: user1[0].name, // need to pass dynamic post number here instead of 0
     postNumber: user1[0].id,
+    userName: req.params.user,
   });
 });
 
-app.post("/shaikhzuber2000@gmail.com/update", (req, res) => {
+app.post("/:user/update", (req, res) => {
   userPosts.find((post) => post.id == req.body.postNumber).name = req.body.post;
-  res.redirect("/shaikhzuber2000@gmail.com");
+  res.redirect("/"+ req.params.user);
   //   res.json({ message: `Updated the post number ${req.body.postNumber}` });
 });
 
-app.get("/shaikhzuber2000@gmail.com/delete/:id", (req, res) => {
+app.get("/:user/delete/:id", (req, res) => {
   const postId = parseInt(req.params.id);
   userPosts = userPosts.filter((itemId) => itemId.id !== postId);
-  res.redirect("/shaikhzuber2000@gmail.com");
+  // console.log(userPosts);
+  res.redirect("/"+ req.params.user);
 });
 
-app.get("/shaikhzuber2000@gmail.com/create", (req, res) => {
-  res.render("create.ejs");
+app.get("/:user/create", (req, res) => {
+  res.render("create.ejs", {
+    userName: req.params.user,
+  });
 });
 
-app.post("/shaikhzuber2000@gmail.com/create/new", (req, res) => {
-  let items = req.body;
-  items.id = userPosts + 1;
-  items.postNumber = items.id;
-  userPosts.push({ id: items.id, name: items.post });
+app.post("/:user/create", (req, res) => {
+  let post = req.body.post;
+  // console.log(post);
 
-  res.redirect("/shaikhzuber2000@gmail.com");
+  postNumber = userPosts.length+1;  
+
+  // console.log(postNumber);
+  userPosts.push({id:postNumber, name:post});
+
+  res.redirect("/"+ req.params.user);
 });
 
 app.listen(port, () => {

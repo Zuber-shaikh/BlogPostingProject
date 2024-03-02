@@ -1,8 +1,12 @@
+<%- include("partials/header.ejs") %>
+<div class="page">
 <h1>Create Post page</h1>
-<form action="/shaikhzuber2000@gmail.com/create/new" method="POST">
+<form action="/<%= userName %>/create" method="POST">
     <input type="text" name="post" id="" value="">
-    <input type="text" name="postNumber" id="" value="" hidden>
-    <input type="submit" name="create" id="" value="create">
-    <a href="/shaikhzuber2000@gmail.com" 
-       onclick="return confirm('Cancel creating a post?')">cancel</a>
+    <input type="submit" name="create" id="" value="Create" class="button">
+    <a href="/<%= userName %>" 
+       onclick="return confirm('Cancel creating a post?')" class="button">Cancel</a>
 </form>
+</div>
+
+<%- include("partials/footer.ejs") %>

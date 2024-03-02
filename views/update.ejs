@@ -1,6 +1,22 @@
-<h1>Update Post page</h1>
-<form action="/shaikhzuber2000@gmail.com/update" method="POST">
-    <input type="text" name="post" id="" value="<%= post %>">
-    <input type="text" name="postNumber" id="" value="<%= postNumber %>" hidden >
-    <input type="submit" name="update" id="" value="update">
-</form>
+<%- include("partials/header.ejs") %>
+
+<div class="page">
+  <div class="heading">
+    <h1>Update Post page</h1>
+  </div>
+  <div class="form">
+    <form action="/<%= userName %>/update" method="POST" class="form">
+      <input type="text" name="post" id="" value="<%= post %>" />
+      <input
+        type="text"
+        name="postNumber"
+        id=""
+        value="<%= postNumber %>"
+        hidden
+      />
+      <input type="submit" name="update" id="" value="Update" class="button"/>
+    </form>
+  </div>
+</div>
+
+<%- include("partials/footer.ejs") %>
